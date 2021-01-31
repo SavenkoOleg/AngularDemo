@@ -1,0 +1,200 @@
+<ng-template #delete_test_result let-c="close" let-d="dismiss">
+	<div class="modal-header" style="padding: 5px;">
+		<span class="kt-portlet__head-icon margin"><i class="kt-font-danger flaticon-delete-1" style="font-size: 14px"></i></span>
+		<h5 class="modal-title" style="font-size: 15px; margin-left: 10px">Удалить результаты теста?</h5>
+		<button type="button" class="close" (click)="d('Cross click')">
+		</button>
+	</div>
+	<div class="modal-body">
+		<button type="button" class="btn btn-outline-danger" style="margin-right: 10px" (click)="deleteResultTest()">
+			Удалить
+		</button>
+		<button type="button" class="btn btn-outline-secondary custom_button" style="position: absolute; right: 10px;"
+				(click)="d('Cross click')">Отменить
+		</button>
+	</div>
+</ng-template>
+
+<div class="kt-portlet">
+	<div class="kt-portlet__head">
+		<div class="kt-portlet__head-label">
+			<h3 class="kt-portlet__head-title"><strong>Результаты</strong></h3>
+		</div>
+		<div class="kt-portlet__head-toolbar">
+			<button *ngIf="!listTestDelIsEmpty" type="button" class="btn btn-danger" style="height: 30px; width: 100px; padding: 2px; font-size: 14px; margin-right: 5px" (click)="deleteSomeResultTests()">Удалить ({{listTestingDelete.length}})</button>
+			<button type="button" class="btn btn-outline-primary right-btn" (click)="update()">Обновить</button>
+		</div>
+	</div>
+	<!--						<div class="kt-portlet__body">-->
+	<!--							<div class="kt-form">-->
+	<!--								<div class="row align-items-center">-->
+	<!--									<div class="col-xl-8 order-2 order-xl-1">-->
+	<!--										<div class="row">-->
+	<!--											<div class="col-md-4">-->
+	<!--												<div class="kt-input-icon kt-input-icon&#45;&#45;left">-->
+	<!--													<input type="text" class="form-control" placeholder="Поиск">-->
+	<!--													<span class="kt-input-icon__icon kt-input-icon__icon&#45;&#45;left">-->
+	<!--														<span><i class="la la-search"></i></span>-->
+	<!--													</span>-->
+	<!--												</div>-->
+	<!--											</div>-->
+	<!--&lt;!&ndash;											<div class="col-md-4 kt-margin-b-20-tablet-and-mobile">&ndash;&gt;-->
+	<!--&lt;!&ndash;												<div class="kt-form__group kt-form__group&#45;&#45;inline">&ndash;&gt;-->
+	<!--&lt;!&ndash;													<div class="kt-form__label">&ndash;&gt;-->
+	<!--&lt;!&ndash;														<label>Статус:</label>&ndash;&gt;-->
+	<!--&lt;!&ndash;													</div>&ndash;&gt;-->
+	<!--&lt;!&ndash;													<div class="kt-form__control">&ndash;&gt;-->
+	<!--&lt;!&ndash;														<select class="form-control bootstrap-select"&ndash;&gt;-->
+	<!--&lt;!&ndash;																id="kt_form_status">&ndash;&gt;-->
+	<!--&lt;!&ndash;															<option value="">All</option>&ndash;&gt;-->
+	<!--&lt;!&ndash;															<option value="1">Pending</option>&ndash;&gt;-->
+	<!--&lt;!&ndash;															<option value="2">Delivered</option>&ndash;&gt;-->
+	<!--&lt;!&ndash;															<option value="3">Canceled</option>&ndash;&gt;-->
+	<!--&lt;!&ndash;															<option value="4">Success</option>&ndash;&gt;-->
+	<!--&lt;!&ndash;															<option value="5">Info</option>&ndash;&gt;-->
+	<!--&lt;!&ndash;															<option value="6">Danger</option>&ndash;&gt;-->
+	<!--&lt;!&ndash;														</select>&ndash;&gt;-->
+	<!--&lt;!&ndash;													</div>&ndash;&gt;-->
+	<!--&lt;!&ndash;												</div>&ndash;&gt;-->
+	<!--&lt;!&ndash;											</div>&ndash;&gt;-->
+	<!--										</div>-->
+	<!--									</div>-->
+	<!--								</div>-->
+	<!--							</div>-->
+	<!--						</div>-->
+	<div class="kt-portlet__body">
+		<!--							<div class="row">-->
+		<!--								<div class="col-md-4">-->
+		<!--									<div class="kt-input-icon kt-input-icon&#45;&#45;left"[formGroup]="searchTesting">-->
+		<!--										<input type="text" class="form-control" placeholder="Поиск" formControlName="input">-->
+		<!--										<span class="kt-input-icon__icon kt-input-icon__icon&#45;&#45;left">-->
+		<!--											<span><i class="la la-search"></i></span>-->
+		<!--										</span>-->
+		<!--									</div>-->
+		<!--								</div>-->
+		<!--							</div>-->
+		<!--							<hr style="width: 100%">-->
+		<div class="kt-datatable kt-datatable--default kt-datatable--loaded">
+			<table class="kt-datatable__table" style="min-height: 50px !important;">
+				<thead class="kt-datatable__head">
+				<tr class="kt-datatable__row">
+					<th class="kt-datatable__cell" style="width: 1%;"><span>&nabla;</span></th>
+					<th class="kt-datatable__cell" style="width: 3%;"><span>ID</span></th>
+					<th class="kt-datatable__cell" style="width: 17%;"><span>Почта</span></th>
+					<th class="kt-datatable__cell" style="width: 16%;"><span>Имя Фамилия</span></th>
+					<th class="kt-datatable__cell" style="width: 15%;"><span>Телефон</span></th>
+					<!--										<th class="kt-datatable__cell kt-datatable__cell&#45;&#45;sort" style="width: 5%;"><span>@</span></th>-->
+					<th class="kt-datatable__cell" style="width: 10%;"><span>Отправлено</span></th>
+					<th class="kt-datatable__cell" style="width: 10%;"><span>Статус</span></th>
+					<th class="kt-datatable__cell" style="width: 12%;"><span>Результат</span></th>
+					<th class="kt-datatable__cell" style="width: 7%;"><span>Действия</span></th>
+				</tr>
+				</thead>
+
+				<tbody class="kt-datatable__body">
+				<perfect-scrollbar class="kt-scroll kt-scroll--pull" [config]="config" [scrollIndicators]="true">
+					<div style="height: 40vh">
+						<tr class="kt-datatable__row list-contacts" *ngFor="let item of (currentListTesting$ | async); let i = index">
+							<td class="kt-datatable__cell" style="width: 1%; padding-bottom: 3px">
+								<input type="checkbox" class="kt-checkbox kt-checkbox--brand" (click)="change(item.testingID)">
+							</td>
+							<td class="kt-datatable__cell" style="width: 3%;"><span>{{i + 1}}</span></td>
+							<td class="kt-datatable__cell" style="width: 16%;"><span>{{item.email}}</span></td>
+							<td class="kt-datatable__cell" style="width: 15%;"><span>{{item.first_name}} {{item.last_name}}</span></td>
+							<td class="kt-datatable__cell" style="width: 13%;"><span>{{item.phone_number}}</span></td>
+							<!--											<td class="kt-datatable__cell" style="width: 5%;"><span>4,3</span></td>-->
+							<td class="kt-datatable__cell" style="width: 10%;">
+<!--								<span>{{item.sendDate | date : 'dd.MM.yy / HH:mm' }}</span>-->
+							</td>
+							<td class="kt-datatable__cell" style="width: 10%;">
+								<span *ngIf="item.status == 'finish'">
+									<span class="kt-badge kt-badge--primary kt-badge--dot"></span>&nbsp;
+									<span class="kt-font-bold kt-font-primary">Готово</span>
+								</span>
+								<span *ngIf="item.status == 'send'">
+									<span class="kt-badge kt-badge--danger kt-badge--dot"></span>&nbsp;
+									<span class="kt-font-bold kt-font-danger">Отправлен</span>
+								</span>
+								<span *ngIf="item.status == 'transition'">
+									<span class="kt-badge kt-badge--warning kt-badge--dot"></span>&nbsp;
+									<span class="kt-font-bold kt-font-warning">Открыт</span>
+								</span>
+								<span *ngIf="item.status == 'started'">
+									<span class="kt-badge kt-badge--success kt-badge--dot"></span>&nbsp;
+															<span class="kt-font-bold kt-font-success">Выполняется</span>
+								</span>
+							</td>
+							<td class="kt-datatable__cell" style="width: 14%;">
+								<span *ngIf="item.status == 'finish'">
+									<span *ngIf="item.typeTest === 'intel'">
+										<svg version="1.1" class="svg-result" xmlns="http://www.w3.org/2000/svg" (click)="routTestResult('/home/common_result', item.testingID)"
+											 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+											 viewBox="0 0 56 56" style="enable-background:new 0 0 56 56;"
+											 xml:space="preserve"><g>
+											<path style="fill:#E9E9E0;" d="M36.985,0H7.963C7.155,0,6.5,0.655,6.5,1.926V55c0,0.345,0.655,1,1.463,1h40.074
+												c0.808,0,1.463-0.655,1.463-1V12.978c0-0.696-0.093-0.92-0.257-1.085L37.607,0.257C37.442,0.093,37.218,0,36.985,0z"/>
+											<polygon style="fill:#D9D7CA;" points="37.5,0.151 37.5,12 49.349,12 "/>
+											<g><path style="fill:#0096E6;" d="M29.271,10h-3.668V45.4h3.668V5z"/></g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g>
+										</svg>
+									</span>
+									<span *ngIf="item.typeTest === 'persona'">
+										<svg version="1.1" class="svg-result" xmlns="http://www.w3.org/2000/svg" (click)="routTestResult('/home/persona_result', item.testingID)"
+											 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+											 viewBox="0 0 56 56" style="enable-background:new 0 0 56 56;"
+											 xml:space="preserve"><g>
+											<path style="fill:#E9E9E0;" d="M36.985,0H7.963C7.155,0,6.5,0.655,6.5,1.926V55c0,0.345,0.655,1,1.463,1h40.074
+												c0.808,0,1.463-0.655,1.463-1V12.978c0-0.696-0.093-0.92-0.257-1.085L37.607,0.257C37.442,0.093,37.218,0,36.985,0z"/>
+											<polygon style="fill:#D9D7CA;" points="37.5,0.151 37.5,12 49.349,12 "/>
+											<g><path style="fill:#0096E6;" d="M29.271,10h-3.668V45.4h3.668V5z"/></g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g>
+										</svg>
+									</span>
+									<span *ngIf="item.typeTest === 'electrician'">
+										<svg version="1.1" class="svg-result" xmlns="http://www.w3.org/2000/svg" (click)="routTestResult('/home/common_result', item.testingID)"
+											 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+											 viewBox="0 0 56 56" style="enable-background:new 0 0 56 56;"
+											 xml:space="preserve"><g>
+											<path style="fill:#E9E9E0;" d="M36.985,0H7.963C7.155,0,6.5,0.655,6.5,1.926V55c0,0.345,0.655,1,1.463,1h40.074
+												c0.808,0,1.463-0.655,1.463-1V12.978c0-0.696-0.093-0.92-0.257-1.085L37.607,0.257C37.442,0.093,37.218,0,36.985,0z"/>
+											<polygon style="fill:#D9D7CA;" points="37.5,0.151 37.5,12 49.349,12 "/>
+											<g><path style="fill:#0096E6;" d="M29.271,10h-3.668V45.4h3.668V5z"/></g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g>
+										</svg>
+									</span>
+									<span *ngIf="item.typeTest === 'master_consultant'">
+										<svg version="1.1" class="svg-result" xmlns="http://www.w3.org/2000/svg" (click)="routTestResult('/home/common_result', item.testingID)"
+											 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+											 viewBox="0 0 56 56" style="enable-background:new 0 0 56 56;"
+											 xml:space="preserve"><g>
+											<path style="fill:#E9E9E0;" d="M36.985,0H7.963C7.155,0,6.5,0.655,6.5,1.926V55c0,0.345,0.655,1,1.463,1h40.074
+												c0.808,0,1.463-0.655,1.463-1V12.978c0-0.696-0.093-0.92-0.257-1.085L37.607,0.257C37.442,0.093,37.218,0,36.985,0z"/>
+											<polygon style="fill:#D9D7CA;" points="37.5,0.151 37.5,12 49.349,12 "/>
+											<g><path style="fill:#0096E6;" d="M29.271,10h-3.668V45.4h3.668V5z"/></g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g>
+										</svg>
+									</span>
+									<span *ngIf="item.typeTest === 'locksmith'">
+										<svg version="1.1" class="svg-result" xmlns="http://www.w3.org/2000/svg" (click)="routTestResult('/home/common_result', item.testingID)"
+											 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+											 viewBox="0 0 56 56" style="enable-background:new 0 0 56 56;"
+											 xml:space="preserve"><g>
+												<path style="fill:#E9E9E0;" d="M36.985,0H7.963C7.155,0,6.5,0.655,6.5,1.926V55c0,0.345,0.655,1,1.463,1h40.074
+													c0.808,0,1.463-0.655,1.463-1V12.978c0-0.696-0.093-0.92-0.257-1.085L37.607,0.257C37.442,0.093,37.218,0,36.985,0z"/>
+												<polygon style="fill:#D9D7CA;" points="37.5,0.151 37.5,12 49.349,12 "/>
+												<g><path style="fill:#0096E6;" d="M29.271,10h-3.668V45.4h3.668V5z"/></g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g>
+										</svg>
+									</span>
+								</span>
+							</td>
+							<td class="kt-datatable__cell" style="width: 3%;">
+								<button type="button" class="btn btn-outline-danger btn-icon  btn-v btn-delete-v"
+										(click)="deleteResultTestAccept(delete_test_result, item.testingID)">
+									<i class="flaticon-delete-1 _v"></i>
+								</button>
+							</td>
+						</tr>
+					</div>
+				</perfect-scrollbar>
+				</tbody>
+
+			</table>
+		</div>
+	</div>
+</div>

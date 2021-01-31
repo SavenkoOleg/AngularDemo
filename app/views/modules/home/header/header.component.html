@@ -1,0 +1,12 @@
+<div ktHeader #ktHeader class="kt-header kt-grid__item" [ngClass]="htmlClassService.getClasses('header', true)" style="left: 0; background-color: #1f1f1f">
+	<ngb-progressbar class="kt-loading-bar" *ngIf="(loader.progress$ | async) > 0" [value]="loader.progress$ | async" height="3px"></ngb-progressbar>
+	<div class="brand-logo">
+		<a routerLink="/home/general">
+			<img alt="logo" src="./assets/media/logos/brand_hr.png" width="55px"/>
+		</a>
+	</div>
+	<kt-menu-horizontal></kt-menu-horizontal>
+	<div class="" style="margin-right: 30px; margin-top: 11px">
+		<button (click)="logout()" class="btn btn-primary btn-upper btn-md">Выйти</button>
+	</div>
+</div>

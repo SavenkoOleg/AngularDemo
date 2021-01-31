@@ -1,0 +1,54 @@
+<div class="kt-login__signup">
+	<div class="kt-login__head" style="text-align: center">
+		<h3>{{ 'AUTH.REGISTER.TITLE' | translate }}</h3>
+		<div class="kt-login__desc">{{ 'AUTH.REGISTER.DESC' | translate }}</div>
+	</div>
+	<kt-auth-notice style="font-size: 15px"></kt-auth-notice>
+
+	<form class="kt-login__form kt-form" [formGroup]="registerForm" autocomplete="off" style="margin: 0 !important;">
+		<div class="input-group">
+			<input class="form-control" style="font-size: 16px" type="text" placeholder="{{ 'AUTH.INPUT.FIRST_NAME' | translate }}" formControlName="first_name"
+				   [class.error]="registerForm.controls['first_name'].invalid && registerForm.controls['first_name'].touched"
+				   [class.success]="registerForm.controls['first_name'].valid"
+			>
+		</div>
+		<div class="input-group">
+			<input class="form-control" style="font-size: 16px" type="text" placeholder="{{ 'AUTH.INPUT.NUMBER' | translate }}" formControlName="number" autocomplete="off"
+				   [class.error]="registerForm.controls['number'].invalid && registerForm.controls['number'].touched"
+				   [class.success]="registerForm.controls['number'].valid"
+			>
+		</div>
+		<div class="input-group">
+			<input class="form-control" style="font-size: 16px" type="email" placeholder="{{ 'AUTH.INPUT.EMAIL' | translate }}" formControlName="email" autocomplete="off"
+				   [class.error]="registerForm.controls['email'].invalid && registerForm.controls['email'].touched"
+				   [class.success]="registerForm.controls['email'].valid"
+			>
+		</div>
+		<div class="input-group">
+			<input class="form-control success" style="font-size: 16px" type="password" placeholder="{{ 'AUTH.INPUT.PASSWORD' | translate }}" formControlName="password" autocomplete="off"
+				   [class.error]="registerForm.controls['password'].invalid && registerForm.controls['password'].touched"
+				   [class.success]="registerForm.controls['password'].valid"
+			>
+		</div>
+		<div class="input-group">
+			<input class="form-control success" style="font-size: 16px" type="password" placeholder="{{ 'AUTH.INPUT.CONFIRM_PASSWORD' | translate }}" formControlName="confirmPassword" autocomplete="off"
+				   [class.error]="registerForm.controls['confirmPassword'].invalid && registerForm.controls['confirmPassword'].touched"
+				   [class.success]="registerForm.controls['confirmPassword'].valid"
+			>
+		</div>
+		<div class="row kt-login__extra">
+			<div class="col kt-align-left">
+				<label class="kt-checkbox">
+					<input type="checkbox" name="agree" formControlName="agree">Я согласен с&nbsp;<a href="#" class="kt-link kt-login__link kt-font-bold">правилами и условиями</a>.
+					<span></span>
+				</label>
+				<span class="form-text text-muted"></span>
+			</div>
+		</div>
+		<div class="kt-login__actions">
+			<button routerLink="/auth/login" [disabled]="loading$ | async" id="kt_login_signup_cancel" class="btn btn-primary btn-elevate kt-login__btn-primary" style="margin-right: 100px">{{ 'AUTH.GENERAL.BACK_BUTTON' | translate }}</button>
+			<button (click)="submit()" class="btn btn-primary btn-elevate kt-login__btn-primary" [ngClass]="{'kt-spinner kt-spinner--right kt-spinner--md kt-spinner--light': loading$ | async}">{{ 'AUTH.GENERAL.SUBMIT_BUTTON' | translate }}</button>
+
+		</div>
+	</form>
+</div>

@@ -1,0 +1,73 @@
+@import "style_var";
+
+.head_height {
+	height: $head_height !important;
+}
+
+.icon_font_size {
+	font-size: $icon_font_size;
+}
+
+.not-info {
+	border: $not-info_border;
+	background-color:$not-info_color;
+	border-radius: $border_radius;
+	width: 100%;
+	height: 30px;
+	text-align: center;
+	align-content: center;
+	margin: auto;
+	padding-top: 7px;
+}
+
+.not-subs{
+	border: $not-info_border;
+	background-color: $not-info_color;
+	border-radius: $border_radius;
+	width: 300px;
+	height: 30px;
+	text-align: center;
+	margin: auto;
+	padding-top: 4px;
+}
+
+.form_panel {
+	border: $border_line;
+	background-color: $background_color_white;
+	box-shadow: 0px 0px 5px #c2bfbb;
+	border-radius: $border_radius;
+	width: 100%;
+	height: auto;
+	padding: 7px;
+	margin-bottom: 10px;
+	color: $color_black;
+	cursor: pointer;
+}
+
+.margin_right {
+	margin-right: $portlet_margin_right;
+}
+
+.collapse{
+	padding: 0px;
+	display: none;
+	overflow: hidden;
+}
+
+.custom_button {
+	padding: 5px 10px 5px 10px;
+}
+
+.custom_portlet_body{
+	margin: 0px;
+	padding: 10px;
+}
+
+.custom_portlet_head{
+	min-height: 45px
+}
+
+.action_button{
+	height: 25px;
+	width: 25px;
+}

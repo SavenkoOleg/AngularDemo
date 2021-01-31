@@ -1,0 +1,1024 @@
+<ng-template #pay_tests let-d="dismiss">
+	<div class="modal-header kt-padding-5">
+		<h5 class="modal-title">Выберите свой тариф</h5>
+		<button type="button" class="close" (click)="d('Cross click')"></button>
+	</div>
+	<div class="modal-body align-self-center">
+		<div class="row">
+			<div class="col-12">
+				<label class="kt-option">
+					<span class="kt-option__control">
+						<span class="kt-radio kt-radio--bold kt-radio--success">
+							<input type="radio" name="m_option_1" value="1">
+							<span></span>
+						</span>
+					</span>
+					<span class="kt-option__label">
+						<span class="kt-option__head">
+							<span class="kt-option__title">
+								100 тестирование
+							</span>
+							<span class="kt-option__focus">
+								19 800 Р
+							</span>
+						</span>
+						<span class="kt-option__body">
+							198р/тестирование
+						</span>
+					</span>
+				</label>
+			</div>
+			<div class="col-12">
+				<label class="kt-option">
+					<span class="kt-option__control">
+						<span class="kt-radio kt-radio--bold kt-radio--success">
+							<input type="radio" name="m_option_1" value="1">
+							<span></span>
+						</span>
+					</span>
+					<span class="kt-option__label">
+						<span class="kt-option__head">
+							<span class="kt-option__title">
+								250 тестирований
+							</span>
+							<span class="kt-option__focus">
+								29 800 Р
+							</span>
+						</span>
+						<span class="kt-option__body">
+							119р/тестирование
+						</span>
+					</span>
+				</label>
+			</div>
+			<div class="col-12">
+				<label class="kt-option">
+					<span class="kt-option__control">
+						<span class="kt-radio kt-radio--bold kt-radio--success">
+							<input type="radio" name="m_option_1" value="1">
+							<span></span>
+						</span>
+					</span>
+					<span class="kt-option__label">
+						<span class="kt-option__head">
+							<span class="kt-option__title">
+								700 тестирований
+							</span>
+							<span class="kt-option__focus">
+								69 800 Р
+							</span>
+						</span>
+						<span class="kt-option__body">
+							99р/тестирование
+						</span>
+					</span>
+				</label>
+			</div>
+			<div class="col-12 text-center">
+				<button type="button" class="btn btn-warning font-size__14" style="width: 150px; height: 40px; margin: auto;">Оплатить</button>
+			</div>
+		</div>
+	</div>
+</ng-template>
+
+<ng-template #pay_interview let-d="dismiss">
+	<div class="modal-header kt-padding-5">
+		<h5 class="modal-title">Выберите свой тариф</h5>
+		<button type="button" class="close" (click)="d('Cross click')"></button>
+	</div>
+	<div class="modal-body align-self-center">
+		<div class="row">
+			<div class="col-12">
+				<label class="kt-option">
+					<span class="kt-option__control">
+						<span class="kt-radio kt-radio--bold kt-radio--success">
+							<input type="radio" name="m_option_1" value="1">
+							<span></span>
+						</span>
+					</span>
+					<span class="kt-option__label">
+						<span class="kt-option__head">
+							<span class="kt-option__title">
+								100 собеседований
+							</span>
+							<span class="kt-option__focus">
+								19 800 Р
+							</span>
+						</span>
+						<span class="kt-option__body">
+							198р/собеседование
+						</span>
+					</span>
+				</label>
+			</div>
+			<div class="col-12">
+				<label class="kt-option">
+					<span class="kt-option__control">
+						<span class="kt-radio kt-radio--bold kt-radio--success">
+							<input type="radio" name="m_option_1" value="1">
+							<span></span>
+						</span>
+					</span>
+					<span class="kt-option__label">
+						<span class="kt-option__head">
+							<span class="kt-option__title">
+								250 собеседований
+							</span>
+							<span class="kt-option__focus">
+								29 800 Р
+							</span>
+						</span>
+						<span class="kt-option__body">
+							119р/собеседование
+						</span>
+					</span>
+				</label>
+			</div>
+			<div class="col-12">
+				<label class="kt-option">
+					<span class="kt-option__control">
+						<span class="kt-radio kt-radio--bold kt-radio--success">
+							<input type="radio" name="m_option_1" value="1">
+							<span></span>
+						</span>
+					</span>
+					<span class="kt-option__label">
+						<span class="kt-option__head">
+							<span class="kt-option__title">
+								700 собеседований
+							</span>
+							<span class="kt-option__focus">
+								69 800 Р
+							</span>
+						</span>
+						<span class="kt-option__body">
+							99р/собеседование
+						</span>
+					</span>
+				</label>
+			</div>
+			<div class="col-12 text-center">
+				<button type="button" class="btn btn-warning font-size__14" style="width: 150px; height: 40px; margin: auto;">Оплатить</button>
+			</div>
+		</div>
+	</div>
+</ng-template>
+
+<ng-template #form_1>
+	<div [formGroup]="VacancyInfo">
+		<h5>О Вакансии</h5>
+		<div class="form-group group" style="width: 600px;">
+			<label class="label-s">Наименование вакансии</label>
+			<input type="text" class="form-control input-s" formControlName="name">
+		</div>
+		<div class="row" style="width: 620px;">
+			<div class="col-6">
+				<div class="form-group group">
+					<label class="label-s">Место работы</label>
+					<input type="text" class="form-control input-s" formControlName="place">
+				</div>
+			</div>
+			<div class="col-6">
+				<div class="form-group group">
+					<label class="label-s">График работы</label>
+					<input type="text" class="form-control input-s" formControlName="schedule">
+				</div>
+			</div>
+		</div>
+		<div class="row" style="width: 620px;">
+			<div class="col-6">
+				<div class="form-group group">
+					<label class="label-s">Оклад, руб</label>
+					<input type="text" class="form-control input-s" formControlName="salary">
+				</div>
+			</div>
+			<div class="col-6">
+				<div class="form-group group">
+					<label class="label-s">Средняя совокупная ЗП, руб</label>
+					<input type="text" class="form-control input-s" formControlName="middle_salary">
+				</div>
+			</div>
+		</div>
+		<div class="row" style="width: 620px;">
+			<div class="col-6">
+				<div class="form-group group">
+					<label class="label-s">Схема мотивации</label>
+					<input type="text" class="form-control input-s" formControlName="schemeMotivation">
+				</div>
+			</div>
+			<div class="col-6">
+				<div class="form-group group">
+					<label class="label-s">Продукт (продаваемый)</label>
+					<input type="text" class="form-control input-s" formControlName="product">
+				</div>
+			</div>
+		</div>
+		<div class="form-group group" style="width: 600px;">
+			<label class="label-s">Мотивация на испытательный срок</label>
+			<input type="text" class="form-control input-s" formControlName="motivationForProbation">
+		</div>
+		<div class="form-group group" style="width: 600px;">
+			<label class="label-s">Основные обязанности</label>
+			<textarea type="text" class="form-control input-s" rows="3" formControlName="mainResponsibilities"></textarea>
+		</div>
+		<div class="form-group group" style="width: 600px;">
+			<label class="label-s">Дополнительно</label>
+			<input type="text" class="form-control input-s" formControlName="additionally">
+		</div>
+	</div>
+</ng-template>
+
+<ng-template #form_2>
+	<div [formGroup]="CandidateInfo">
+		<h5>О кандидате</h5>
+		<div class="form-group group" style="width: 600px;">
+			<label class="label-s">ФИО:</label>
+			<input type="text" class="form-control input-s" formControlName="FIO">
+		</div>
+		<div class="row" style="width: 620px;">
+			<div class="col-6">
+				<div class="form-group group">
+					<label class="label-s">e-mail:</label>
+					<input type="email" class="form-control input-s" formControlName="email">
+				</div>
+			</div>
+			<div class="col-6">
+				<div class="form-group group">
+					<label class="label-s">Телефон:</label>
+					<input type="text" class="form-control input-s" formControlName="phone">
+				</div>
+			</div>
+		</div>
+		<div class="row" style="width: 620px;">
+			<div class="col-6">
+				<div class="form-group group">
+					<label class="label-s">Возраст:</label>
+					<input type="text" class="form-control input-s" formControlName="age">
+				</div>
+			</div>
+			<div class="col-6">
+				<div class="form-group group">
+					<label class="label-s">Город:</label>
+					<input type="text" class="form-control input-s" formControlName="city">
+				</div>
+			</div>
+		</div>
+		<div class="row" style="width: 620px;">
+			<div class="col-3">
+				<div class="form-group group">
+					<label class="label-s">Опыт работы:</label>
+					<div class="kt-radio-inline">
+						<label class="kt-radio kt-radio--bold kt-radio--success">
+							<input type="radio" [value]=true formControlName="experience">Да
+							<span></span>
+						</label>
+						<label class="kt-radio kt-radio--bold kt-radio--success">
+							<input type="radio" [value]=false formControlName="experience">Нет
+							<span></span>
+						</label>
+					</div>
+				</div>
+			</div>
+			<div class="col-3">
+				<div class="form-group group">
+					<label class="label-s">Cтаж по вакансии:</label>
+					<div class="kt-radio-inline">
+						<label class="kt-radio kt-radio--bold kt-radio--success">
+							<input type="radio" [value]=true formControlName="experienceForVacancy">Да
+							<span></span>
+						</label>
+						<label class="kt-radio kt-radio--bold kt-radio--success">
+							<input type="radio" [value]=false formControlName="experienceForVacancy">Нет
+							<span></span>
+						</label>
+					</div>
+				</div>
+			</div>
+			<div class="col-6">
+				<div class="form-group group">
+					<label class="label-s">Skype/Zoom:</label>
+					<input type="text" class="form-control input-s" formControlName="zoom">
+				</div>
+			</div>
+		</div>
+	</div>
+</ng-template>
+
+<ng-template #form_3>
+	<div [formGroup]="InterviewInfo">
+		<h5>Диалог</h5>
+		<div class="form-group group" style="width: 650px;">
+			<textarea type="text" class="form-control input-s" rows="8" formControlName="text"></textarea>
+		</div>
+		<br>
+		<div class="row" style="width: 650px; margin-right: auto; margin-left: auto">
+			<div class="col-5">
+				<label class="label-c">Четкость формулирования мысли:</label>
+				<label class="label-c">Выделение своих преимуществ:</label>
+				<label class="label-c">Краткость презентации:</label>
+				<label class="label-c">Продажа себя:</label>
+			</div>
+			<div class="col-2">
+				<label class="label-c font-size__12" style="padding: 2px; text-align: center;">несвязно</label>
+				<label class="label-c font-size__12" style="padding: 2px; text-align: center;">не сказал</label>
+				<label class="label-c font-size__12" style="padding: 2px; text-align: center;">более 5 мин.</label>
+				<label class="label-c font-size__12" style="padding: 2px; text-align: center;">не продал</label>
+			</div>
+			<div class="col-3">
+				<input type="range" class="custom-range" formControlName="p1" style="margin-top: 7px; margin-bottom: 7px" min="1" max="5">
+				<input type="range" class="custom-range" formControlName="p2" style="margin-top: 7px; margin-bottom: 7px" min="1" max="5">
+				<input type="range" class="custom-range" formControlName="p3" style="margin-top: 7px; margin-bottom: 7px" min="1" max="5">
+				<input type="range" class="custom-range" formControlName="p4" style="margin-top: 7px; margin-bottom: 7px" min="1" max="5">
+			</div>
+			<div class="col-2">
+				<label class="label-c font-size__12" style="padding: 2px; text-align: center;">локанично</label>
+				<label class="label-c font-size__12" style="padding: 2px; text-align: center;">более 3-х раз</label>
+				<label class="label-c font-size__12" style="padding: 2px; text-align: center;">менее 2 мин.</label>
+				<label class="label-c font-size__12" style="padding: 2px; text-align: center;">продал</label>
+			</div>
+		</div>
+	</div>
+</ng-template>
+
+<ng-template #form_4>
+	<div [formGroup]="CaseInfo">
+		<div class="row" style="width: 600px;">
+			<div class="col-5">
+				<h5>Кейсы</h5>
+			</div>
+			<div class="col-3">
+				<div class="form-group group">
+					<select class="form-control input-s" formControlName="casesType">
+						<option *ngFor="let item of casesType" [value]="item.id">{{item.type}}</option>
+					</select>
+				</div>
+			</div>
+			<div class="col-3">
+				<div class="form-group group">
+					<select class="form-control input-s" formControlName="cases">
+						<option *ngFor="let item of currentCasesList" [value]="item.id">{{item.name}}</option>
+					</select>
+				</div>
+			</div>
+			<div class="col-1">
+				<button class="btn btn-success" (click)="currentFormID = -1">Добавить</button>
+			</div>
+		</div>
+		<div style="width: 650px; margin-top: 10px;">
+			<h6>Направление кейса: <strong>{{currentCase.type}}</strong></h6>
+			<br>
+			<h6>Наименование кейса: <strong>{{currentCase.name}}</strong></h6>
+			<br>
+			<h6><strong>Ситуация</strong></h6>
+			<p>&emsp;{{currentCase.situation}}</p>
+			<h6><strong>Задача</strong></h6>
+			<p>&emsp;{{currentCase.task}}</p>
+			<h6><strong>Возражения/правильные ответы</strong></h6>
+			<ul>
+				<li *ngFor="let res of currentCase.result">{{res}}</li>
+			</ul>
+		</div>
+		<h6><strong>Оценка ответа кандидата:</strong></h6>
+		<div class="row" style="width: 650px; margin-right: auto; margin-left: auto">
+			<div class="col-5">
+				<label *ngFor="let ass of currentAssessmentPosition" class="label-c">{{ass.criterion}}:</label>
+				<label class="label-c">В общий балл:</label>
+			</div>
+			<div class="col-2">
+				<label *ngFor="let ass of currentAssessmentPosition" class="label-c font-size__12" style="padding: 2px; text-align: center;">{{ass.left}}</label>
+			</div>
+			<div class="col-3">
+				<input *ngFor="let ass of currentAssessmentPosition" formControlName="p{{ass.id}}" type="range" class="custom-range" style="margin-top: 7px; margin-bottom: 7px;" min="1" max="5">
+				<label class="label-c" style="padding: 2px; text-align: center;">{{caseBall}}</label>
+			</div>
+			<div class="col-2">
+				<label *ngFor="let ass of currentAssessmentPosition" class="label-c font-size__12" style="padding: 2px; text-align: center;">{{ass.right}}</label>
+			</div>
+		</div>
+	</div>
+</ng-template>
+
+<ng-template #form_5>
+	<h5>Добавление кейса</h5>
+	<div class="row" style="width: 620px;">
+		<div class="col-6">
+			<div class="form-group group">
+				<label class="label-s">Название кейса</label>
+				<input type="text" class="form-control input-s">
+			</div>
+		</div>
+		<div class="col-6">
+			<div class="form-group group">
+				<label class="label-s">Направление кейса</label>
+				<select class="form-control input-s">
+					<option *ngFor="let item of casesType" [value]="item.id">{{item.type}}</option>
+				</select>
+			</div>
+		</div>
+	</div>
+	<div class="form-group group">
+		<label class="label-s">Описание ситуации</label>
+		<textarea type="text" class="form-control input-s" rows="4"></textarea>
+	</div>
+	<div class="form-group group">
+		<label class="label-s">Описание задачи</label>
+		<textarea type="text" class="form-control input-s" rows="4"></textarea>
+	</div>
+	<div class="form-group group">
+		<label class="label-s">Возражения/правильные ответы</label>
+		<textarea type="text" class="form-control input-s" rows="4"></textarea>
+	</div>
+	<h6 style="margin-top: 10px">Критерии оценки</h6>
+	<div class="row" style="width: 600px; margin-top: 10px">
+		<div class="col-6" *ngFor="let ass of assessmentPosition">
+			<label class="kt-checkbox kt-checkbox--bold kt-checkbox--primary">
+				<input type="checkbox">{{ass.criterion}}
+				<span></span>
+			</label>
+		</div>
+	</div>
+</ng-template>
+
+<ng-template #form_6>
+	<div [formGroup]="QualificationInfo">
+		<h5><strong>Квалификация (РОП)</strong></h5>
+		<div style="width: 600px">
+			<div class="form-group group">
+				<label class="label-s">Какой продукт продавала компания?</label>
+				<textarea type="text" class="form-control input-s" rows="2" formControlName="productCompany"></textarea>
+			</div>
+			<div class="form-group group">
+				<label class="label-s">Опыт руководства отделом имеете? Какая продолжительность?</label>
+				<textarea type="text" class="form-control input-s" rows="2" formControlName="experience"></textarea>
+			</div>
+			<div class="form-group group">
+				<label class="label-s">(Если опыт был) Какая численность подчиненных</label>
+				<textarea type="text" class="form-control input-s" rows="2" formControlName="subordinates"></textarea>
+			</div>
+			<div class="form-group group">
+				<label class="label-s">У Вас есть опыт наставничества? Оцените его. (положительный/отрицательный/непонятный)</label>
+				<textarea type="text" class="form-control input-s" rows="2" formControlName="mentor"></textarea>
+			</div>
+			<div class="form-group group">
+				<label class="label-s">Что было продуктом Вашей деятельности на последнем месте работы?</label>
+				<textarea type="text" class="form-control input-s" rows="2" formControlName="productOfActivity"></textarea>
+			</div>
+			<div class="form-group group">
+				<label class="label-s">Какие функции Вы выполняли?</label>
+				<textarea type="text" class="form-control input-s" rows="2" formControlName="functions"></textarea>
+			</div>
+		</div>
+	</div>
+</ng-template>
+
+<ng-template #form_7>
+	<div [formGroup]="GeneralBlockInfo">
+		<h5>Основной блок (РОП)</h5>
+		<div class="container-title">
+			<div class="item-title"><span>Критерий</span></div>
+			<div class="item-title"><span>Вопрос</span></div>
+			<div class="item-title sub-container-title">
+				<div class="sub-item-title">Результат</div>
+				<div class="sub-item-title">Балл</div>
+				<div class="sub-item-title">Итого</div>
+			</div>
+		</div>
+		<div class="container-section">
+			<div class="item-section" style="grid-row: 1/3;"><span>Результатник</span></div>
+
+			<div class="item-section">Какой был план на последнем месте работы Руководителем? Сколько получалось делать?</div>
+			<div class="item-section sub-container-section">
+				<div class="sub-item-section">Не сказал</div>
+				<div class="sub-item-section">Сказал</div>
+				<div class="sub-item-section">
+					<input type="range" formControlName="p1" class="custom-range" style="margin-top: 7px; margin-bottom: 7px;" min="1" max="5">
+				</div>
+			</div>
+
+			<div class="item-section">Какие личные достижения у Вас есть в жизни?</div>
+			<div class="item-section sub-container-section">
+				<div class="sub-item-section">Не сказал</div>
+				<div class="sub-item-section">Более 2-х</div>
+				<div class="sub-item-section">
+					<input type="range" formControlName="p2" class="custom-range" style="margin-top: 7px; margin-bottom: 7px;" min="1" max="5">
+				</div>
+			</div>
+
+			<div class="item-section ball_middle" style="grid-row: 1/3;"><span>{{section_1}}</span></div>
+		</div>
+		<div class="container-section">
+			<div class="item-section" style="grid-row: 1/3;"><span>Автор</span></div>
+
+			<div class="item-section">Если план выполнял/не выполнял: Что мешало/помогало выполнить план?</div>
+			<div class="item-section sub-container-section">
+				<div class="sub-item-section">Причина НЕ я</div>
+				<div class="sub-item-section">Причина Я</div>
+				<div class="sub-item-section">
+					<input type="range" formControlName="p3" class="custom-range" style="margin-top: 7px; margin-bottom: 7px;" min="1" max="5">
+				</div>
+			</div>
+
+			<div class="item-section ball_middle" style="grid-row: 1/3;"><span>{{section_2}}</span></div>
+		</div>
+		<div class="container-section">
+			<div class="item-section" style="grid-row: 1/6;"><span>Едино-мышленник</span></div>
+
+			<div class="item-section">У менеджеров  была обязательная схема продажи или интуитивно продавали?</div>
+			<div class="item-section sub-container-section">
+				<div class="sub-item-section">На интуиции</div>
+				<div class="sub-item-section">По схемам</div>
+				<div class="sub-item-section">
+					<input type="range" formControlName="p4" class="custom-range" style="margin-top: 7px; margin-bottom: 7px;" min="1" max="5">
+				</div>
+			</div>
+
+			<div class="item-section">Какие были этапы продажи?</div>
+			<div class="item-section sub-container-section">
+				<div class="sub-item-section">Не знает</div>
+				<div class="sub-item-section">Назвал все этапы</div>
+				<div class="sub-item-section">
+					<input type="range" formControlName="p5" class="custom-range" style="margin-top: 7px; margin-bottom: 7px;" min="1" max="5">
+				</div>
+			</div>
+
+			<div class="item-section">Вы работали по скриптам? Как думаете, для чего они нужны?</div>
+			<div class="item-section sub-container-section">
+				<div class="sub-item-section">Не работал</div>
+				<div class="sub-item-section">Использовал</div>
+				<div class="sub-item-section">
+					<input type="range" formControlName="p6" class="custom-range" style="margin-top: 7px; margin-bottom: 7px;" min="1" max="5">
+				</div>
+			</div>
+
+			<div class="item-section">Какую роль для вас играет рабочий коллектив?</div>
+			<div class="item-section sub-container-section">
+				<div class="sub-item-section">Никакую</div>
+				<div class="sub-item-section">Командный игрок</div>
+				<div class="sub-item-section">
+					<input type="range" formControlName="p7" class="custom-range" style="margin-top: 7px; margin-bottom: 7px;" min="1" max="5">
+				</div>
+			</div>
+
+			<div class="item-section">Какими принципами вы руководствуетесь в работе?</div>
+			<div class="item-section sub-container-section">
+				<div class="sub-item-section">Нет принципов</div>
+				<div class="sub-item-section">2 и более</div>
+				<div class="sub-item-section">
+					<input type="range" formControlName="p8" class="custom-range" style="margin-top: 7px; margin-bottom: 7px;" min="1" max="5">
+				</div>
+			</div>
+
+			<div class="item-section ball_middle" style="grid-row: 1/6;"><span>{{section_3}}</span></div>
+		</div>
+		<div class="container-section">
+			<div class="item-section" style="grid-row: 1/3;">Мотивация</div>
+
+			<div class="item-section">Какой уровень дохода у вас был последние полгода?</div>
+			<div class="item-section sub-container-section">
+				<div class="sub-item-section">Выше</div>
+				<div class="sub-item-section">Ниже</div>
+				<div class="sub-item-section">
+					<input type="range" formControlName="p9" class="custom-range" style="margin-top: 7px; margin-bottom: 7px;" min="1" max="5">
+				</div>
+			</div>
+
+			<div class="item-section">Сколько сейчас вы хотите зарабатывать на старте и спустя время?</div>
+			<div class="item-section sub-container-section">
+				<div class="sub-item-section">Выше</div>
+				<div class="sub-item-section">Ниже</div>
+				<div class="sub-item-section">
+					<input type="range" formControlName="p10" class="custom-range" style="margin-top: 7px; margin-bottom: 7px;" min="1" max="5">
+				</div>
+			</div>
+
+			<div class="item-section ball_middle" style="grid-row: 1/3;"><span>{{section_4}}</span></div>
+		</div>
+		<div class="container-section">
+			<div class="item-section" style="grid-row: 1/4;">Тон</div>
+
+			<div class="item-section">Кандидат улыбается?</div>
+			<div class="item-section sub-container-section">
+				<div class="sub-item-section">Строгий</div>
+				<div class="sub-item-section">Более 3-х раз</div>
+				<div class="sub-item-section">
+					<input type="range" formControlName="p11" class="custom-range" style="margin-top: 7px; margin-bottom: 7px;" min="1" max="5">
+				</div>
+			</div>
+
+			<div class="item-section">Кандидат в хорошем настроении?</div>
+			<div class="item-section sub-container-section">
+				<div class="sub-item-section">Безразличие</div>
+				<div class="sub-item-section">Открытый</div>
+				<div class="sub-item-section">
+					<input type="range" formControlName="p12" class="custom-range" style="margin-top: 7px; margin-bottom: 7px;" min="1" max="5">
+				</div>
+			</div>
+
+			<div class="item-section">Кандидат положительно оценивает произошедшие с ним события?</div>
+			<div class="item-section sub-container-section">
+				<div class="sub-item-section">Жизнь не справедлива</div>
+				<div class="sub-item-section">Положительно</div>
+				<div class="sub-item-section">
+					<input type="range" formControlName="p13" class="custom-range" style="margin-top: 7px; margin-bottom: 7px;" min="1" max="5">
+				</div>
+			</div>
+
+			<div class="item-section ball_middle" style="grid-row: 1/4;"><span>{{section_5}}</span></div>
+		</div>
+		<div class="container-section">
+			<div class="item-section" style="grid-row: 1/2;">Дикция</div>
+
+			<div class="item-section">Дикция</div>
+			<div class="item-section sub-container-section">
+				<div class="sub-item-section">Плохая</div>
+				<div class="sub-item-section">Отличная</div>
+				<div class="sub-item-section">
+					<input type="range" formControlName="p14" class="custom-range" style="margin-top: 7px; margin-bottom: 7px;" min="1" max="5">
+				</div>
+			</div>
+
+			<div class="item-section ball_middle" style="grid-row: 1/2;"><span>{{section_6}}</span></div>
+		</div>
+		<div class="container-section">
+			<div class="item-section" style="grid-row: 1/2;">Внешний вид</div>
+
+			<div class="item-section">Опрятность</div>
+			<div class="item-section sub-container-section">
+				<div class="sub-item-section">Плохая</div>
+				<div class="sub-item-section">Отличная</div>
+				<div class="sub-item-section">
+					<input type="range" formControlName="p15" class="custom-range" style="margin-top: 7px; margin-bottom: 7px;" min="1" max="5">
+				</div>
+			</div>
+
+			<div class="item-section ball_middle" style="grid-row: 1/2;"><span>{{section_7}}</span></div>
+		</div>
+		<div class="container-section">
+			<div class="item-section" style="grid-row: 1/3; border-bottom: 1px solid black;">Завершение</div>
+			<div class="item-section" style="grid-column: 2/-1; border-right: 1px solid black;">(Имя ) Есть вопросы, на которые Вы не получили ответы? (Отвечаем)</div>
+			<div class="item-section" style="grid-column: 2/-1; border-right: 1px solid black; border-bottom: 1px solid black;">(Сообщаем решение). Благодарю Вас, что уделили время</div>
+
+		</div>
+	</div>
+</ng-template>
+
+<ng-template #form_8>
+	<h5>Принять решение о кандидате</h5>
+	<h6><strong>Квалификация</strong></h6>
+	<div class="container-1">
+			<div class="item-1">Какой продукт продавала компания?</div>
+			<div class="item-1">{{interview.qualificationInfo.productCompany}}</div>
+			<div class="item-1">Опыт руководства отделом имеете? Какая продолжительность?</div>
+			<div class="item-1">{{interview.qualificationInfo.experience}}</div>
+			<div class="item-1">(Если опыт был) Какая численность подчиненных</div>
+			<div class="item-1">{{interview.qualificationInfo.subordinates}}</div>
+			<div class="item-1">У Вас есть опыт наставничества? Оцените его. (положительный/отрицательный/непонятный)</div>
+			<div class="item-1">{{interview.qualificationInfo.mentor}}</div>
+			<div class="item-1">Что было продуктом Вашей деятельности на последнем месте работы?</div>
+			<div class="item-1">{{interview.qualificationInfo.productOfActivity}}</div>
+			<div class="item-1">Какие функции Вы выполняли?</div>
+			<div class="item-1">{{interview.qualificationInfo.functions}}</div>
+		</div>
+	<br>
+	<h6><strong>Общий блок</strong></h6>
+	<div class="container-2">
+		<div class="item-2">Самопрезентация</div>
+		<div class="item-2 i-n j-1" [ngStyle]="{'width': (section_0 === 0 ? 2 : section_0 === 5 ? section_0 * 20 - 2 : section_0 * 20)+'%'}">{{section_0}}</div>
+
+		<div class="item-2">Результативник</div>
+		<div class="item-2 i-n j-2" [ngStyle]="{'width': (section_1 === 0 ? 2 : section_1 === 5 ? section_1 * 20 - 2 : section_1 * 20)+'%'}">{{section_1}}</div>
+
+		<div class="item-2">Автор</div>
+		<div class="item-2 i-n j-3" [ngStyle]="{'width': (section_2 === 0 ? 2 : section_2 === 5 ? section_2 * 20 - 2 : section_2 * 20)+'%'}">{{section_2}}</div>
+
+		<div class="item-2">Единомышленник</div>
+		<div class="item-2 i-n j-4" [ngStyle]="{'width': (section_3 === 0 ? 2 : section_3 === 5 ? section_3 * 20 - 2 : section_3 * 20)+'%'}">{{section_3}}</div>
+
+		<div class="item-2">Тон</div>
+		<div class="item-2 i-n j-5" [ngStyle]="{'width': (section_4 === 0 ? 2 : section_4 === 5 ? section_4 * 20 - 2 : section_4 * 20)+'%'}">{{section_4}}</div>
+
+		<div class="item-2">Мотивация</div>
+		<div class="item-2 i-n j-6" [ngStyle]="{'width': (section_5 === 0 ? 2 : section_5 === 5 ? section_5 * 20 - 2 : section_5 * 20)+'%'}">{{section_5}}</div>
+
+		<div class="item-2">Дикция</div>
+		<div class="item-2 i-n j-7" [ngStyle]="{'width': (section_6 === 0 ? 2 : section_6 === 5 ? section_6 * 20 - 2 : section_6 * 20)+'%'}">{{section_6}}</div>
+
+		<div class="item-2">Опрятность</div>
+		<div class="item-2 i-n j-10" [ngStyle]="{'width': (section_7 === 0 ? 2 : section_7 === 5 ? section_7 * 20 - 2 : section_7 * 20)+'%'}">{{section_7}}</div>
+
+		<div class="item-2">А Общий балл</div>
+		<div class="item-2 i-n j-11" [ngStyle]="{'width': (sectionAverage === 0 ? 2 : sectionAverage === 5 ? sectionAverage * 20 - 2 : sectionAverage * 20)+'%'}">{{sectionAverage}}</div>
+
+		<div class="item-2 i-8">
+			<div class="container-5">
+				<div class="item-3">&nbsp;</div>
+				<div class="item-3"></div>
+				<div class="item-3"></div>
+				<div class="item-3"></div>
+				<div class="item-3"></div>
+				<div class="item-3"></div>
+			</div>
+		</div>
+
+		<div class="item-2 i-9">
+			<div class="container-4">
+				<div class="item-4">0</div>
+				<div class="item-4">1</div>
+				<div class="item-4">2</div>
+				<div class="item-4">3</div>
+				<div class="item-4">4</div>
+				<div class="item-4" style="padding-right: 5px;">5</div>
+			</div>
+		</div>
+	</div>
+	<br>
+	<h6><strong>Кейс</strong>&nbsp;<span>{{currentCase.type}}&nbsp;/&nbsp;{{currentCase.name}}</span></h6>
+	<div class="container-2" *ngIf="+interview.caseInfo.casesType === 0">
+		<div class="item-2">Приветствие</div>
+		<div class="item-2 i-n i-1" [ngStyle]="{'width': (interview.caseInfo.p1 === 0 ? 2 : interview.caseInfo.p1 === 5 ? interview.caseInfo.p1 * 20 - 2 : interview.caseInfo.p1 * 20)+'%'}">{{interview.caseInfo.p1}}</div>
+
+		<div class="item-2">Потребности</div>
+		<div class="item-2 i-n i-2" [ngStyle]="{'width': (interview.caseInfo.p2 === 0 ? 2 : interview.caseInfo.p2 === 5 ? interview.caseInfo.p2 * 20 - 2 : interview.caseInfo.p2 * 20)+'%'}">{{interview.caseInfo.p2}}</div>
+
+		<div class="item-2">Презентация</div>
+		<div class="item-2 i-n i-3" [ngStyle]="{'width': (interview.caseInfo.p3 === 0 ? 2 : interview.caseInfo.p3 === 5 ? interview.caseInfo.p3 * 20 - 2 : interview.caseInfo.p3 * 20)+'%'}">{{interview.caseInfo.p3}}</div>
+
+		<div class="item-2">Возражения</div>
+		<div class="item-2 i-n i-4" [ngStyle]="{'width': (interview.caseInfo.p4 === 0 ? 2 : interview.caseInfo.p4 === 5 ? interview.caseInfo.p4 * 20 - 2 : interview.caseInfo.p4 * 20)+'%'}">{{interview.caseInfo.p4}}</div>
+
+		<div class="item-2">Креативность</div>
+		<div class="item-2 i-n i-5" [ngStyle]="{'width': (interview.caseInfo.p5 === 0 ? 2 : interview.caseInfo.p5 === 5 ? interview.caseInfo.p5 * 20 - 2 : interview.caseInfo.p5 * 20)+'%'}">{{interview.caseInfo.p5}}</div>
+
+		<div class="item-2">Закрытие сделки</div>
+		<div class="item-2 i-n i-6" [ngStyle]="{'width': (interview.caseInfo.p6 === 0 ? 2 : interview.caseInfo.p6 === 5 ? interview.caseInfo.p6 * 20 - 2 : interview.caseInfo.p6 * 20)+'%'}">{{interview.caseInfo.p6}}</div>
+
+		<div class="item-2">В Общий балл</div>
+		<div class="item-2 i-n i-7" [ngStyle]="{'width': (interview.caseInfo.caseAverage === 0 ? 2 : interview.caseInfo.caseAverage === 5 ? interview.caseInfo.caseAverage * 20 - 2 : interview.caseInfo.caseAverage * 20)+'%'}">{{interview.caseInfo.caseAverage}}</div>
+
+		<div class="item-2 i-8">
+			<div class="container-3 container-3__v-1">
+				<div class="item-3">&nbsp;</div>
+				<div class="item-3"></div>
+				<div class="item-3"></div>
+				<div class="item-3"></div>
+				<div class="item-3"></div>
+				<div class="item-3"></div>
+			</div>
+		</div>
+		<div class="item-2 i-9">
+			<div class="container-4">
+				<div class="item-4">0</div>
+				<div class="item-4">1</div>
+				<div class="item-4">2</div>
+				<div class="item-4">3</div>
+				<div class="item-4">4</div>
+				<div class="item-4" style="padding-right: 5px;">5</div>
+			</div>
+		</div>
+	</div>
+	<div class="container-2" *ngIf="interview.caseInfo.casesType === 1 || interview.caseInfo.casesType === 2">
+		<div class="item-2">Контроль ситуации</div>
+		<div class="item-2 i-n i-1" [ngStyle]="{'width': (interview.caseInfo.p7 === 0 ? 2 : interview.caseInfo.p7 === 5 ? interview.caseInfo.p7 * 20 - 2 : interview.caseInfo.p7 * 20)+'%'}">{{interview.caseInfo.p7}}</div>
+
+		<div class="item-2">Нест-ное решение</div>
+		<div class="item-2 i-n i-2" [ngStyle]="{'width': (interview.caseInfo.p8 === 0 ? 2 : interview.caseInfo.p8 === 5 ? interview.caseInfo.p8 * 20 - 2 : interview.caseInfo.p8 * 20)+'%'}">{{interview.caseInfo.p8}}</div>
+
+		<div class="item-2">Возражения</div>
+		<div class="item-2 i-n i-3" [ngStyle]="{'width': (interview.caseInfo.p9 === 0 ? 2 : interview.caseInfo.p9 === 5 ? interview.caseInfo.p9 * 20 - 2 : interview.caseInfo.p9 * 20)+'%'}">{{interview.caseInfo.p9}}</div>
+
+		<div class="item-2">Угроза срыва</div>
+		<div class="item-2 i-n i-4" [ngStyle]="{'width': (interview.caseInfo.p10 === 0 ? 2 : interview.caseInfo.p10 === 5 ? interview.caseInfo.p10 * 20 - 2 : interview.caseInfo.p10 * 20)+'%'}">{{interview.caseInfo.p10}}</div>
+
+		<div class="item-2">Итог ситуации</div>
+		<div class="item-2 i-n i-5" [ngStyle]="{'width': (interview.caseInfo.p11 === 0 ? 2 : interview.caseInfo.p11 === 5 ? interview.caseInfo.p11 * 20 - 2 : interview.caseInfo.p11 * 20)+'%'}">{{interview.caseInfo.p11}}</div>
+
+		<div class="item-2">В Общий балл</div>
+		<div class="item-2 i-n i-7" [ngStyle]="{'width': (interview.caseInfo.caseAverage === 0 ? 2 : interview.caseInfo.caseAverage === 5 ? interview.caseInfo.caseAverage * 20 - 2 : interview.caseInfo.caseAverage * 20)+'%'}">{{interview.caseInfo.caseAverage}}</div>
+
+		<div class="item-2 i-8">
+			<div class="container-3 container-3__v-2">
+				<div class="item-3"></div>
+				<div class="item-3"></div>
+				<div class="item-3"></div>
+				<div class="item-3"></div>
+				<div class="item-3"></div>
+				<div class="item-3"></div>
+			</div>
+		</div>
+		<div class="item-2 i-9">
+			<div class="container-4">
+				<div class="item-4">0</div>
+				<div class="item-4">1</div>
+				<div class="item-4">2</div>
+				<div class="item-4">3</div>
+				<div class="item-4">4</div>
+				<div class="item-4" style="padding-right: 5px;">5</div>
+			</div>
+		</div>
+	</div>
+	<div class="container-2" *ngIf="interview.caseInfo.casesType === 3">
+		<div class="item-2">Ход решения</div>
+		<div class="item-2 i-n i-1" [ngStyle]="{'width': (interview.caseInfo.p12 === 0 ? 2 : interview.caseInfo.p12 === 5 ? interview.caseInfo.p12 * 20 - 2 : interview.caseInfo.p12 * 20)+'%'}">{{interview.caseInfo.p12}}</div>
+
+		<div class="item-2">Дает решение</div>
+		<div class="item-2 i-n i-1" [ngStyle]="{'width': (interview.caseInfo.p13 === 0 ? 2 : interview.caseInfo.p13 === 5 ? interview.caseInfo.p13 * 20 - 2 : interview.caseInfo.p13 * 20)+'%'}">{{interview.caseInfo.p13}}</div>
+
+		<div class="item-2">В Общий балл</div>
+		<div class="item-2 i-n i-7" [ngStyle]="{'width': (interview.caseInfo.caseAverage === 0 ? 2 : interview.caseInfo.caseAverage === 5 ? interview.caseInfo.caseAverage * 20 - 2 : interview.caseInfo.caseAverage * 20)+'%'}">{{interview.caseInfo.caseAverage}}</div>
+
+		<div class="item-2 i-8">
+			<div class="container-3 container-3__v-3">
+				<div class="item-3">&nbsp;</div>
+				<div class="item-3"></div>
+				<div class="item-3"></div>
+				<div class="item-3"></div>
+				<div class="item-3"></div>
+				<div class="item-3"></div>
+			</div>
+		</div>
+		<div class="item-2 i-9">
+			<div class="container-4">
+				<div class="item-4">0</div>
+				<div class="item-4">1</div>
+				<div class="item-4">2</div>
+				<div class="item-4">3</div>
+				<div class="item-4">4</div>
+				<div class="item-4" style="padding-right: 5px;">5</div>
+			</div>
+		</div>
+	</div>
+	<div class="container-2" *ngIf="interview.caseInfo.casesType === 4">
+		<div class="item-2">Контроль ситуации</div>
+		<div class="item-2 i-n i-1" [ngStyle]="{'width': (interview.caseInfo.p7 === 0 ? 2 : interview.caseInfo.p7 === 5 ? interview.caseInfo.p7 * 20 - 2 : interview.caseInfo.p7 * 20)+'%'}">{{interview.caseInfo.p7}}</div>
+
+		<div class="item-2">Ход решения</div>
+		<div class="item-2 i-n i-2" [ngStyle]="{'width': (interview.caseInfo.p12 === 0 ? 2 : interview.caseInfo.p12 === 5 ? interview.caseInfo.p12 * 20 - 2 : interview.caseInfo.p12 * 20)+'%'}">{{interview.caseInfo.p12}}</div>
+
+		<div class="item-2">Дает решение</div>
+		<div class="item-2 i-n i-3" [ngStyle]="{'width': (interview.caseInfo.p13 === 0 ? 2 : interview.caseInfo.p13 === 5 ? interview.caseInfo.p13 * 20 - 2 : interview.caseInfo.p13 * 20)+'%'}">{{interview.caseInfo.p13}}</div>
+
+		<div class="item-2">В Общий балл</div>
+		<div class="item-2 i-n i-7" [ngStyle]="{'width': (interview.caseInfo.caseAverage === 0 ? 2 : interview.caseInfo.caseAverage === 5 ? interview.caseInfo.caseAverage * 20 - 2 : interview.caseInfo.caseAverage * 20)+'%'}">{{interview.caseInfo.caseAverage}}</div>
+
+		<div class="item-2 i-8">
+			<div class="container-3 container-3__v-4">
+				<div class="item-3">&nbsp;</div>
+				<div class="item-3"></div>
+				<div class="item-3"></div>
+				<div class="item-3"></div>
+				<div class="item-3"></div>
+				<div class="item-3"></div>
+			</div>
+		</div>
+		<div class="item-2 i-9">
+			<div class="container-4">
+				<div class="item-4">0</div>
+				<div class="item-4">1</div>
+				<div class="item-4">2</div>
+				<div class="item-4">3</div>
+				<div class="item-4">4</div>
+				<div class="item-4" style="padding-right: 5px;">5</div>
+			</div>
+		</div>
+	</div>
+	<br>
+	<h6><strong>Решение</strong></h6>
+	<div class="form-group group" style="width: 650px">
+		<select class="form-control input-s">
+			<option *ngFor="let item of statusList" [value]="item.id">{{item.name}}</option>
+		</select>
+	</div>
+</ng-template>
+
+<div *ngIf="windowInterview">
+	<div class="modal-backdrop show"></div>
+
+	<div class="modal fade show d-block">
+		<div class="modal-dialog modal-dialog__interview">
+			<div class="modal-content">
+				<div class="modal-header kt-padding-5">
+					<h5 class="modal-title font-size__15"><strong>Интервью</strong>&nbsp;Имя фамилия</h5>
+					<button class="close" type="button" (click)="finishInterview()"></button>
+				</div>
+				<div class="modal-body align-self-center" style="padding: 10px">
+					<perfect-scrollbar class="kt-scroll kt-scroll--pull" [config]="config" [scrollIndicators]="false">
+						<div style="max-height: 80vh; padding-right: 15px">
+							<ng-container *ngIf="currentFormID === 0" [ngTemplateOutlet]="form_1"></ng-container>
+							<ng-container *ngIf="currentFormID === 1" [ngTemplateOutlet]="form_2"></ng-container>
+							<ng-container *ngIf="currentFormID === 2" [ngTemplateOutlet]="form_3"></ng-container>
+							<ng-container *ngIf="currentFormID === 3" [ngTemplateOutlet]="form_4"></ng-container>
+							<ng-container *ngIf="currentFormID === -1" [ngTemplateOutlet]="form_5"></ng-container>
+							<ng-container *ngIf="currentFormID === 4" [ngTemplateOutlet]="form_6"></ng-container>
+							<ng-container *ngIf="currentFormID === 5" [ngTemplateOutlet]="form_7"></ng-container>
+							<ng-container *ngIf="currentFormID === 6" [ngTemplateOutlet]="form_8"></ng-container>
+						</div>
+					</perfect-scrollbar>
+				</div>
+				<div class="modal-footer kt-padding-5">
+					<div class="footer_block">
+						<button type="button" class="btn btn-primary kt-margin-r-5" *ngIf="currentFormID !== 0" (click)="currentFormID = currentFormID > 0 ? currentFormID - 1 : currentFormID = 3">Назад</button>
+						<button type="button" class="btn btn-success" *ngIf="saveStatusInterview" (click)="saveInterview()">Сохранить</button>
+						<button type="button" class="btn btn-success right" *ngIf="currentFormID === -1" (click)="saveCase()">Сохранить</button>
+						<button type="button" class="btn btn-success right" *ngIf="currentFormID === forms.length - 1 && currentFormID !== -1" (click)="finishInterview()">Завершить</button>
+						<button type="button" class="btn btn-primary right" *ngIf="currentFormID < forms.length - 1 && currentFormID !== -1" (click)="nextForm()">Вперед</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="kt-portlet margin-center">
+	<div class="kt-portlet__head">
+		<div class="kt-portlet__head-label">
+			<h3 class="kt-portlet__head-title" *ngIf="(currentVacancy$ | async); else NotVacancy"><strong>Вакансия: {{(currentVacancy$ | async).name}}</strong>&nbsp;<small>({{(currentVacancy$ | async).type.name}})</small></h3>
+			<ng-template #NotVacancy><h3 class="kt-portlet__head-title"><strong>Нет вакансий</strong></h3></ng-template>
+		</div>
+	</div>
+	<div class="kt-portlet__body">
+		<div class="container-flex">
+			<div class="block-flex input-email" [formGroup]="searchContact">
+				<input type="text" class="form-control form-control--email" placeholder="e-mail кандидата" formControlName="email">
+			</div>
+			<div class="block-flex">
+				<div class="box show menu menu-add not-shadow contact" *ngIf="searchContact.controls['email'].valid && searchContact.controls['email'].dirty">
+					<span>
+						<b>Контакт</b>
+						<span class="badge badge-success badge-pill font-size__12 kt-margin-l-5" *ngIf="!currentContact">Новый</span>
+<!--						<span class="badge badge-success badge-pill font-size__12 kt-margin-l-5" *ngIf="!currentContact">Добавить</span>-->
+						<span class="badge badge-primary badge-pill font-size__12 kt-margin-l-5" *ngIf="currentContact">Уже существует</span>
+						<br>
+						<span>
+							{{currentContact.first_name ? currentContact.first_name +' ' : ''}}&nbsp;{{currentContact.last_name ? currentContact.last_name : ''}}
+						</span>
+						<br>
+						e-mail: <strong>{{currentContact ? currentContact.email : searchContact.controls['email'].value}}</strong>
+					</span>
+				</div>
+			</div>
+			<div class="block-flex">
+				<div class="container-flex">
+					<div class="block-flex__2"><span class="font-size__14">Баланс собеседований</span></div>
+					<div class="block-flex__2 left"><span class="font-size__14">{{(interviewBalance$ | async)}}</span></div>
+					<div class="block-flex__2 left">
+						<button type="button" class="btn btn-outline-warning btn-icon"
+								style="width: 20px; height: 20px; margin-top: 0px"
+								(click)="payTests(pay_interview)">
+							<i class="flaticon2-plus font-size__12"></i>
+						</button>
+					</div>
+				</div>
+				<div class="container-flex ">
+					<div class="block-flex__2"><span class="font-size__14">Баланс тестов</span></div>
+					<div class="block-flex__2 left"><span class="font-size__14">{{(testBalance$ | async)}}</span></div>
+					<div class="block-flex__2 left">
+						<button type="button" class="btn btn-outline-warning btn-icon"
+								style="width: 20px; height: 20px; margin-top: 0px"
+								(click)="payTests(pay_tests)">
+							<i class="flaticon2-plus font-size__12"></i>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div *ngIf="(currentVacancy$ | async)" class="row">
+			<div class="col-12">
+				<div *ngIf="(testBalance$ | async) > 0 && (currentVacancy$ | async) !== undefined">
+					<div class="row">
+						<div class="col-xl-2 col-lg-3 col-md-6 col-sm-6 col-12" *ngFor="let test of (listTests$ | async)">
+							<div *ngIf="test.flag" class="box show menu menu-add not-shadow kt-padding-5"
+								 style="height: 30px;" (click)="currentTypeTest = test.type"
+								 [ngClass]="{'active_block': currentTypeTest === test.type}">
+								<span style="margin: auto">{{test.name}}</span>
+							</div>
+						</div>
+					</div>
+					<div class="row kt-margin-t-10">
+						<div class="block-button">
+							<button
+								type="button" class="btn btn-primary"
+								[disabled]="!searchContact.controls['email'].value.length"
+								(click)="sendTest()"
+							>Отправить тест</button>
+						</div>
+						<div class="block-button">
+							<button type="button" class="btn btn-primary" (click)="startInterview()">Начать собеседование</button>
+						</div>
+					</div>
+					<div class="row" *ngIf="linkNotifi">
+						<div class="col-11" style="margin: 20px; border: 1px solid #fa7002; border-radius: 5px; box-shadow: 5px 5px 5px #ffbe87">
+							<span class="font-size__14">Если письмо со ссылкой не дошло, отправьте эту ссылку кандидату вручную: {{link}}</span>
+							<br>
+							<span class="font-size__14">Этот режим только на период первичного тестирования!</span>
+						</div>
+					</div>
+				</div>
+				<div *ngIf="(testBalance$ | async) === 0 && (currentVacancy$ | async) === undefined">
+					<span>Нет доступных тестов. Пополните балланс!</span>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>

@@ -1,0 +1,13 @@
+@import "../../../../assets/app/base/login-3.css";
+
+kt-auth, .kt-login {
+	height: 100%;
+
+	.mat-form-field {
+		width: 100%;
+	}
+
+	.kt-spinner {
+		padding-right: 3rem !important;
+	}
+}

@@ -1,0 +1,215 @@
+<ng-template #delete_folder let-d="dismiss">
+	<div class="modal-header kt-padding-5">
+		<span class="kt-portlet__head-icon kt-margin-l-5n"><i class="kt-font-danger flaticon-delete-1 font-size__15"></i></span>
+		<h5 class="modal-title font-size__15 kt-margin-l-5">Удалить раздел?</h5>
+		<button type="button" class="close" (click)="d('Cross click')"></button>
+	</div>
+	<div class="modal-body align-self-center">
+		<div class="row row-width__450">
+			<div class="col-12 text-center">
+				<span *ngIf="!(deleteFolderWithVacancy$ | async); else elseBlock">В этом разделе отсутствуют вакансии</span>
+				<ng-template #elseBlock><span>В этом разделе есть вакансии, которые удалятся вместе с разделом</span></ng-template>
+			</div>
+		</div>
+	</div>
+	<div class="modal-body">
+		<button type="button" class="btn btn-outline-danger" (click)="deleteFold()">Удалить</button>
+		<button type="button" class="btn btn-outline-secondary custom_button btn-cancel" (click)="d('Cross click')">Отменить</button>
+	</div>
+</ng-template>
+<ng-template #delete_vacancy let-d="dismiss">
+	<div class="modal-header kt-padding-5">
+		<span class="kt-portlet__head-icon kt-margin-l-5"><i class="kt-font-danger flaticon-delete-1 font-size__15"></i></span>
+		<h5 class="modal-title font-size__15 kt-margin-l-5">Переместить вакансию в архив?</h5>
+		<button type="button" class="close" (click)="d('Cross click')"></button>
+	</div>
+	<div class="modal-body">
+		<button type="button" class="btn btn-outline-danger" (click)="deleteVacancy()">Переместить</button>
+		<button type="button" class="btn btn-outline-secondary custom_button btn-cancel" (click)="d('Cross click')">Отменить</button>
+	</div>
+</ng-template>
+<ng-template #new_vacancy let-d="dismiss">
+	<div class="modal-header kt-padding-5">
+		<span class="kt-portlet__head-icon kt-margin-l-5"><i class="kt-font-success font-size__15" [ngClass]="{'flaticon-edit-1' : editVacancyFlag, 'flaticon-add' : !editVacancyFlag }"></i></span>
+		<h5 *ngIf="!editVacancyFlag; else EditVacancy" class="modal-title font-size__15 kt-margin-l-5">Добавление новой вакансии</h5>
+		<ng-template #EditVacancy><h5 class="modal-title font-size__15 kt-margin-l-5">Редактирование вакансии</h5></ng-template>
+		<button type="button" class="close" (click)="d('Cross click')"></button>
+	</div>
+	<div class="modal-body align-self-center w-100">
+		<div class="row">
+			<div class="col-12">
+				<form class="kt-form" [formGroup]="newVacancyForm">
+					<div class="kt-portlet__body">
+						<div class="form-group group kt-margin-t-5">
+							<label class="label-s">Название вакансии:</label>
+							<input type="text" class="form-control input-s" formControlName="name">
+						</div>
+						<div class="form-group group kt-margin-t-5">
+							<label class="label-s">Тип вакансии:</label>
+							<select class="form-control kt-margin-t-5 font-size__14" formControlName="type">
+								<option *ngFor="let item of listTypeVacancy" [selected]="item.id == newVacancyForm.controls['type'].value" [value]="item.id">{{item.name}}</option>
+							</select>
+						</div>
+						<div class="form-group group kt-margin-t-5">
+							<label class="label-s">Место работы:</label>
+							<input type="text" class="form-control input-s" formControlName="space">
+						</div>
+						<div class="form-group group kt-margin-t-5">
+							<label class="label-s">Совокупная ЗП:</label>
+							<input type="text" class="form-control input-s" formControlName="amount">
+						</div>
+						<div class="form-group group kt-margin-t-5">
+							<label class="label-s">Продаем продукт:</label>
+							<textarea type="text" class="form-control input-s" rows="4" formControlName="product"></textarea>
+						</div>
+						<div class="form-group group kt-margin-t-5">
+							<label class="label-s">Обязанности:</label>
+							<textarea type="text" class="form-control input-s" rows="4" formControlName="duties"></textarea>
+						</div>
+					</div>
+					<div class="kt-portlet__foot">
+						<div class="kt-margin-t-10">
+							<button class="btn btn-success btn-s" (click)="saveVacancy()">Сохранить</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</ng-template>
+
+<ng-template #statistic>
+	<div class="modal-header" style="padding: 5px;">
+		<h5 class="modal-title margin">Статистика</h5>
+		<button type="button" class="close" (click)="dis()">
+		</button>
+	</div>
+	<div class="modal-body align-self-center">
+		<div class="row">
+			Здесь пока пусто!
+		</div>
+	</div>
+</ng-template>
+<ng-template #statistic_vacancy>
+	<div class="modal-header" style="padding: 5px;">
+		<h5 class="modal-title margin">Статистика</h5>
+		<button type="button" class="close" (click)="dis()">
+		</button>
+	</div>
+	<div class="modal-body align-self-center">
+		<div class="row">
+			Здесь пока пусто!
+		</div>
+	</div>
+</ng-template>
+
+<div class="kt-portlet">
+	<div class="kt-portlet__head">
+		<div class="kt-portlet__head-label">
+			<h3 class="kt-portlet__head-title"><strong>Управление вакансиями</strong></h3>
+		</div>
+		<div class="kt-portlet__head-toolbar">
+			<!--<button type="button" class="btn btn-outline-primary" style="margin-right: 5px; height: 30px; padding: 4px; font-size: 13px" (click)="statisticOpen(statistic)">Статистика</button>-->
+			<button type="button" class="btn btn-outline-primary right-btn" routerLink="/home/archive">Архив</button>
+		</div>
+	</div>
+	<div class="kt-portlet__body">
+		<ul class="nav nav-tabs nav-tabs-line nav-tabs-line-2x nav-tabs-line-primary nav-height">
+			<li class="nav-item" (click)="updateCurrentListVacancy('0')">
+				<a class="nav-link nav-link__custom" [ngClass]="{'active' : (currentFolderID$ | async) === '0'}">Все разделы</a>
+			</li>
+			<li class="nav-item" *ngFor="let fold of (listFolderVacancy$ | async)" (click)="updateCurrentListVacancy(fold.folderID)">
+				<a class="nav-link nav-link__custom" [ngClass]="{'active' : fold.folderID === (currentFolderID$ | async)}">{{fold.name}}
+					<button type="button" class="btn btn-outline-danger btn-icon btn-delete-folder" (click)="deleteFoldAccept(delete_folder, fold.folderID)">
+						<i class="flaticon-delete-1 delete_folder"></i>
+					</button>
+				</a>
+			</li>
+			<li *ngIf="!newFolder && (listFolderVacancy$ | async).length <= maxFolder" class="nav-item nav-item__custom mt-13">
+				<button type="button" class="btn btn-outline-success btn-icon btn__custom" (click)="newFolder = true">
+					<i class="flaticon2-plus font-size__12"></i>
+				</button>
+			</li>
+			<li *ngIf="newFolder && (listFolderVacancy$ | async).length <= maxFolder" class="nav-item nav-item__custom mt-8">
+				<input [(ngModel)]="nameNewFolder" type="text" class="form-control add-vacancy" placeholder="Новый раздел">
+			</li>
+			<li *ngIf="newFolder && (listFolderVacancy$ | async).length <= maxFolder" class="nav-item nav-item__custom mt-8 kt-margin-r-5">
+				<button type="button" class="btn btn-outline-success add-vacancy" (click)="createFolder()">Сохранить</button>
+			</li>
+			<li *ngIf="newFolder && (listFolderVacancy$ | async).length <= maxFolder" class="nav-item nav-item__custom mt-8">
+				<button type="button" class="btn btn-outline-danger add-vacancy" (click)="newFolder = false">Отменить</button>
+			</li>
+		</ul>
+		<div class="row">
+			<div class="col-xl-3 col-lg-5 col-md-5 col-sm-12 col-12">
+				<div class="menu menu-add__success manage" (click)="openNewVacancy(new_vacancy)">
+					<span class="btn-font">Добавить вакансию</span>
+				</div>
+			</div>
+<!--			<div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">-->
+<!--				<div class="menu menu-item__success manage"-->
+<!--					 (click)="openSection('all')"-->
+<!--					 [ngClass]="{'active_block__success' : (section$ | async) === 'all'}">-->
+<!--					<span class="btn-font"><a>Все вакансии ({{(currentFolder$ | async).all}})</a></span>-->
+<!--					&lt;!&ndash;<button type="button" class="btn btn-outline-success btn-icon btn-v btn-success-v"><i class="flaticon-settings-1 _v" (click)="routSetting('all')"></i></button>&ndash;&gt;-->
+<!--					&lt;!&ndash;<button type="button" class="btn btn-outline-success btn-icon btn-v btn-success-v" (click)="openStatistic(statistic_vacancy, 'all')"><i class="flaticon-diagram _v"></i></button>&ndash;&gt;-->
+<!--				</div>-->
+<!--			</div>-->
+			<div class="col-xl-9 col-lg-7 col-md-7 col-sm-12 col-12">
+				<div class="kt-input-icon kt-input-icon--left mt-5" [formGroup]="searchVacancy">
+					<input type="text" class="form-control input-search" formControlName="input" placeholder="Поиск">
+					<span class="kt-input-icon__icon kt-input-icon__icon--left"><span><i class="la la-search"></i></span></span>
+				</div>
+			</div>
+		</div>
+		<div class="row mt-13">
+			<div class="col-12">
+				<div>
+					<div
+						class="menu menu-item__pimary manage"
+						*ngFor="let item of (currentListVacancy$ | async)"
+						(click)="selectVacancy(item.vacancyID)"
+						[ngClass]="{'active_block' : (currentVacancy$ | async).vacancyID === item.vacancyID}">
+
+							<span class="brn-font"><a>{{item.name}}</a></span>
+							<button type="button" class="btn btn-outline-success btn-icon btn-v btn-success-v"><i class="flaticon-edit _v" (click)="editVacancy(item.vacancyID, new_vacancy)"></i></button>
+							<!--<button type="button" class="btn btn-outline-success btn-icon btn-v btn-success-v" (click)="openStatistic(statistic_vacancy, item.id)"><iclass="flaticon-diagram _v"></i></button>-->
+							<button type="button" class="btn btn-outline-danger btn-icon  btn-v btn-delete-v" (click)="deleteVacancyAccept(delete_vacancy, item.vacancyID)"><i class="flaticon-delete-1 _v"></i></button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!--						<div>-->
+<!--							<div class="alert alert-light alert-elevate show menu menu-item manage"-->
+<!--								 (click)="openSection('all')"-->
+<!--								 [ngClass]="{'active_block' : (section$ | async) === 'all'}">-->
+<!--								<span style="font-size: 14px; margin: auto"><a>Все вакансии ({{(currentFolder$ | async).all}})</a></span>-->
+<!--								&lt;!&ndash;											<button type="button" class="btn btn-outline-success btn-icon btn-v btn-success-v"><i class="flaticon-settings-1 _v" (click)="routSetting('all')"></i></button>&ndash;&gt;-->
+<!--								&lt;!&ndash;											<button type="button" class="btn btn-outline-success btn-icon btn-v btn-success-v" (click)="openStatistic(statistic_vacancy, 'all')"><i class="flaticon-diagram _v"></i></button>&ndash;&gt;-->
+<!--							</div>-->
+
+<!--							<div class="alert alert-light alert-elevate show menu menu-item manage"-->
+<!--								 (click)="openSection('unparsed')"-->
+<!--								 [ngClass]="{'active_block' : (section$ | async) === 'unparsed'}">-->
+<!--								<span style="font-size: 14px; margin: auto"><a>Неразобранные ({{(currentFolder$ | async).unparsed}})</a></span>-->
+<!--								&lt;!&ndash;											<button type="button" class="btn btn-outline-success btn-icon btn-v btn-success-v" (click)="routSetting('unparsed')"><i class="flaticon-settings-1 _v"></i></button>&ndash;&gt;-->
+<!--								&lt;!&ndash;											<button type="button" class="btn btn-outline-success btn-icon btn-v btn-success-v" (click)="openStatistic(statistic_vacancy, 'unparsed')"><i class="flaticon-diagram _v"></i></button>&ndash;&gt;-->
+<!--							</div>-->
+<!--							<div *ngIf="(currentFolderID$ | async) === '0' && (accountStatus$ | async) === 'demo'"-->
+<!--								 class="alert alert-light alert-elevate show menu menu-item manage"-->
+<!--								 (click)="openSection('demo')"-->
+<!--								 [ngClass]="{'active_block' : (section$ | async)  === 'demo'}">-->
+<!--								<span style="font-size: 14px; margin: auto"><a>Демо ({{(countDemo$ | async)}})</a></span>-->
+<!--								&lt;!&ndash;											<button type="button" class="btn btn-outline-success btn-icon btn-v btn-success-v"><i class="flaticon-settings-1 _v" (click)="routSetting('demo')"></i></button>&ndash;&gt;-->
+<!--								&lt;!&ndash;											<button type="button" class="btn btn-outline-success btn-icon btn-v btn-success-v" (click)="openStatistic(statistic_vacancy, 'demo')"><i class="flaticon-diagram _v"></i></button>&ndash;&gt;-->
+<!--							</div>-->
+<!--						</div>-->
+<!--						<div>-->
+<!--							<div class="alert alert-light show menu menu-add manage" (click)="openNewVacancy(new_vacancy)">-->
+<!--								<span style="font-size: 14px; margin: auto">Добавить вакансию</span>-->
+<!--							</div>-->
+<!--						</div>-->

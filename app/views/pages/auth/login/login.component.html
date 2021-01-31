@@ -1,0 +1,32 @@
+<div class="kt-login__signin">
+	<div class="kt-login__head">
+		<h3 class="kt-login__title">{{ 'AUTH.GENERAL.AUTH' | translate }}</h3>
+		<kt-auth-notice style="font-size: 15px"></kt-auth-notice>
+	</div>
+	<form class="kt-form"  [formGroup]="loginForm" autocomplete="off" style="margin-top: 0px">
+		<div class="input-group">
+			<input class="form-control" style="font-size: 16px" type="email" placeholder="{{ 'AUTH.INPUT.EMAIL' | translate }}" formControlName="email">
+		</div>
+		<div class="input-group">
+			<input class="form-control" style="font-size: 16px" type="password" placeholder="{{ 'AUTH.INPUT.PASSWORD' | translate }}" formControlName="password">
+		</div>
+		<div class="row kt-login__extra">
+			<div class="col">
+				<label class="kt-checkbox">
+					<input type="checkbox" name="remember">{{ 'AUTH.GENERAL.REMEMBER' | translate }}
+					<span></span>
+				</label>
+			</div>
+			<div class="col kt-align-right">
+				<a routerLink="/auth/forgot-password"  class="kt-link kt-login__link">{{ 'AUTH.GENERAL.FORGET' | translate }}</a>
+			</div>
+		</div>
+		<div class="kt-login__actions">
+			<button (click)="submit()" [ngClass]="{'kt-spinner kt-spinner--right kt-spinner--md kt-spinner--light': loading$ | async}" class="btn btn-primary btn-elevate kt-login__btn-primary">{{ 'AUTH.LOGIN.BUTTON' | translate }}</button>
+		</div>
+	</form>
+	<div class="kt-login__account">
+		<span class="kt-login__account-msg">{{ 'AUTH.GENERAL.NO_ACCOUNT' | translate }}</span>&nbsp;&nbsp;
+		<a routerLink="/auth/register" class="kt-link kt-link--light kt-login__account-link">{{ 'AUTH.GENERAL.SIGNUP_BUTTON' | translate }}</a>
+	</div>
+</div>

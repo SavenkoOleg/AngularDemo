@@ -1,0 +1,37 @@
+<ng-container *ngIf="selfLayout !== 'blank'; else blankLayout">
+	<div class="kt-grid kt-grid--hor kt-grid--root">
+		<div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--ver kt-page" style="left: 0px; right: 0px;">
+			<div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor kt-wrapper" style="right: 0px; padding-left: 0px; left: 0px;">
+				<kt-header></kt-header>
+				<div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor" [style.margin-top]="asideDisplay === true ? '20px':'0px'">
+					<div ktContentAnimate class="kt-content kt-grid__item kt-grid__item--fluid" >
+						<div class="row" *ngIf="(currentUser$ | async) && (currentUser$ | async).accountStatus === 'lock'">
+							<div class="col">
+								<div class="alert alert-light alert-elevate fade show" role="alert">
+									<div class="alert-icon"><i class="flaticon-warning kt-font-danger"></i></div>
+									<div class="alert-text"> На данный момент доступ платформы ограничен! </div>
+								</div>
+							</div>
+						</div>
+
+						<div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
+							<div class="row">
+								<div class="col-xl-1"></div>
+								<div class="col-xl-10 col-lg-12 col-md-12 col-sm-12 col-12">
+									<router-outlet  *ngIf="(currentUser$ | async) && (currentUser$ | async).accountStatus !== 'lock'"></router-outlet>
+								</div>
+								<div class="col-xl-1"></div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+				<kt-footer></kt-footer>
+			</div>
+		</div>
+	</div>
+</ng-container>
+
+<ng-template #blankLayout>
+	<router-outlet></router-outlet>
+</ng-template>

@@ -1,0 +1,110 @@
+@import "./style_var";
+
+.menu {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding: 10px;
+	cursor: pointer;
+}
+
+.menu-item:hover {
+	background-color: $color_blue_1;
+	border-color: $color_blue_2;
+}
+
+#update_content {
+	background-color: $color_green_1;
+	border-color: $color_green_2;
+}
+#update_content:hover {
+	background-color: $color_green_1;
+	border-color: $color_green_2;
+}
+
+
+.menu-add:hover {
+	cursor: pointer;
+	background-color: $color_green_1;
+	border-color: $color_green_2;
+}
+
+.section_question {
+	background-color: $color_blue_1;
+	border-color: $color_blue_2;
+	height: 35px;
+	padding: 3px;
+}
+
+.active_block {
+	background-color: $color_blue_1;
+	border-color: $color_blue_2;
+}
+
+.menu-add_block:hover {
+	cursor: pointer;
+	background-color: $color_blue_1;
+	border-color: $color_blue_2;
+}
+
+
+.btn-delete {
+	width: 19px !important;
+	height: 19px !important;
+	padding: 1px !important;
+	margin-left: 4px;
+	border-color: #c7c7c7 !important;
+}
+
+.btn-delete:hover {
+	border-color: red !important;
+}
+.btn-delete_2 {
+	width: 25px !important;
+	height: 39px !important;
+	margin-left: 5px !important;
+	padding: 1px !important;
+	border-color: #c7c7c7 !important;
+}
+
+.btn-delete_2:hover {
+	border-color: red !important;
+}
+
+
+.delete_icon {
+	font-size: 11px !important;
+	color: #c7c7c7 !important;
+}
+
+.delete_icon:hover {
+	color: white !important;
+}
+
+.box {
+	color: #282a3c;
+	border: 1px solid #eaeaea;
+	display: flex;
+	height: 40px;
+	border-radius: 0.25rem;
+	margin-bottom: 1rem;
+	padding: 2px;
+}
+
+.box-light {
+	background: #ffffff;
+}
+
+.admin_set {
+	font-size: 14px;
+	margin: auto;
+}
+
+div#title_div {
+	height: 40px;
+	padding: 5px
+}
+
+span#title_span {
+	font-size: 15px;
+	margin: auto
+}
